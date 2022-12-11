@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Select Poc</title>
+  </head>
+  <body>
+    <section id="inicial-modules">
+      <h1>Crear modulos</h1>
+      <form id="ng-new-module">
+        <fieldset id="module-name">
+          <legend>Choose module name</legend>
+          <input type="radio" id="shared" name="module-name" value="shared" />
+          <label for="shared">Shared</label>
+          <input type="radio" id="material" name="module-name" value="material" />
+          <label for="material">Material</label>
+          <input type="radio" name="module-name" />
+          <input id="custom-module-name" name="module-name" />
+          <label for="custom-module-name">Insert custom module name</label>
+        </fieldset>
+        <fieldset id="routing-selecting">
+          <legend>Do you want routing?</legend>
+          <input
+            type="radio"
+            id="routing-selecting-yes"
+            name="routing-selecting"
+            value="yes"
+          />
+          <label for="routing-selecting-yes">Yes</label>
+          <input
+            type="radio"
+            id="routing-selecting-no"
+            name="routing-selecting"
+            value="no"
+          />
+          <label for="routing-selecting-no">No</label>
+        </fieldset>
+        <fieldset id="flat-selecting">
+          <legend>Do you want flat module?</legend>
+          <input type="radio" id="flat-selecting-yes" name="flat-selecting" value="yes" />
+          <label for="flat-selecting-yes">Yes</label>
+          <input type="radio" id="flat-selecting-no" name="flat-selecting" value="no" />
+          <label for="flat-selecting-no">No</label>
+        </fieldset>
+      </form>
+      <pre id="initial-module-command"></pre>
+      <script>
+        const newModuleForm = document.getElementById("ng-new-module");
+        const parserNewModuleEvent = (event) => {
+          const form = new FormData(event.currentTarget);
+          const formData = new FormData(event.currentTarget);
+          return formData;
+        };
+        newModuleForm.addEventListener(
+          "input",
+          function (event) {
+            const data = parserNewModuleEvent(event);
+            console.log("Este es el resultado:");
+            for (const [key, value] of data) {
+              console.log(key, value);
+            }
+          },
+          { capture: true }
+        );
+      </script>
+      <hr />
+    </section>
+  </body>
+</html>
